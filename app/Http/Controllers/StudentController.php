@@ -8,7 +8,8 @@ use App\Models\Student;
 class StudentController extends Controller
 {
     public function index(){
-        return view('welcome');
+        $all_students = Student::get();
+        return view('welcome', compact('all_students'));
     }
     public function store(Request $data){
         // dd($data->input());

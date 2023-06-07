@@ -70,19 +70,25 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First</th>
-                                        <th scope="col">Last</th>
-                                        <th scope="col">Handle</th>
+                                        <th scope="col">id</th>
+                                        <th scope="col">Student name</th>
+                                        <th scope="col">Student email</th>
+                                        <th scope="col">action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($all_students as $item)
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
+                                        <th scope="row">{{ $item->id }}</th>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->email }}</td>
+                                        <td>
+                                            <button class="btn btn-info">Edit</button>
+                                            <button class="btn btn-danger" onclick="return confirm('are your sure you want to delete')">Delete</button>
+                                        </td>
                                     </tr>
+                                    @endforeach
+                                    
                                 </tbody>
                             </table>
                         </div>
